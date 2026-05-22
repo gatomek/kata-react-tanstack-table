@@ -19,7 +19,7 @@ import {
 import {type CSSProperties, useState} from "react";
 import styles from './DreamTeam.module.css';
 import {type Person} from "./types.ts";
-import {noPersons, persons} from './data';
+import {persons} from './data';
 
 const getPinningStyles = (column: Column<Person, unknown>): CSSProperties => {
     const isPinned = column.getIsPinned()
@@ -147,7 +147,6 @@ const defaultColumns = [
 ]
 
 export function DreamTeam() {
-    const [file] = useState<Person[]>((): Person[] => [...persons]);
     const [columnOrder, setColumnOrder] = useState<string[]>([]);
     const [colFilterMode, setColFilterMode] = useState(false);
     const [colFilters, setColFilters] = useState<ColumnFiltersState>([]);
@@ -158,7 +157,7 @@ export function DreamTeam() {
 
     const table = useReactTable(
         {
-            data: file ?? noPersons,
+            data: persons,
             columns: defaultColumns,
             enableRowSelection: true,
             enableMultiRowSelection: false,
@@ -240,8 +239,6 @@ export function DreamTeam() {
     const calcGlobalFilter = (value: string) => {
         setGlobalFilter(value);
     }
-
-    console.log('rerender');
 
     return (
         <div className={styles.root}>

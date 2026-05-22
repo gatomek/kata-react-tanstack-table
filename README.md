@@ -5,10 +5,11 @@
 - add pagination view
 - add column ordering by DnD
 - add column resizing by DnD
-- add buttom summary row
+- add bottom summary row
 - add copy content to clipboard by clicking button in cell
 - add header groups
 - add control layout ala MUI
 - add custom sorting function for rating column
-- add column multisort
+- add column multi-sort
 - add row multiselection 
+- use inNumberRange filter function for age row 

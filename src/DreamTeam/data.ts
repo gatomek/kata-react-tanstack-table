@@ -7,5 +7,3 @@ export const persons: Person[] = [
     {userId: '13', name: {first: 'Myszka', last: 'Miki'}, age: 28, visits: 5, job: 'Developer', room: '1.13', rating: '-'},
     {userId: '14', name: {first: 'Kubuś', last: 'Puchatek'}, age: 15, visits: 10, job: 'Developer', room: '2.23', rating: '+++'}
 ];
-
-export const noPersons: Person[] = [];

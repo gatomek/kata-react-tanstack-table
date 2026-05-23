@@ -167,9 +167,7 @@ export function DreamTeam() {
                     <tbody>
                     {
                         table.getRowModel().rows.map((row: Row<Person>) =>
-                            <tr key={row.id}
-                                onClick={row.getToggleSelectedHandler()}
-                            >
+                            <tr key={row.id}>
                                 {
                                     row.getVisibleCells().map((cell: Cell<Person, unknown>) =>
                                         <td key={cell.id}

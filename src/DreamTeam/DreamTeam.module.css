@@ -16,11 +16,12 @@
     min-width: max-content;
 }
 
-th {
+.table th {
     background-color: powderblue;
 }
 
-th, td {
+.table th,
+.table td {
     border: 1px solid gray;
     padding: 5px;
 }

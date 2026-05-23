@@ -209,11 +209,11 @@ export function DreamTeam() {
                     </div>
                     <div className={styles.autoMargin}>
                         <div>
-                            <div>Column order: <div>{table.getAllColumns().map(c => c.id).map(c => (
-                                <div key={"a." + c}>
-                                    <button className={styles.button} onClick={() => moveUp(c)}>⇧</button>
-                                    <button className={styles.button} onClick={() => moveDown(c)}>⇩</button>
-                                    &nbsp;{c}
+                            <div>Column order: <div>{table.getAllColumns().map(c => (
+                                <div key={c.id}>
+                                    <button className={styles.button} onClick={() => moveUp(c.id)}>⇧</button>
+                                    <button className={styles.button} onClick={() => moveDown(c.id)}>⇩</button>
+                                    &nbsp;{c.id}
                                 </div>
                             ))
                             }</div>

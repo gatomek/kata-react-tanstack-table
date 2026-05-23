@@ -1,0 +1,44 @@
+.root {
+    user-select: none;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.table {
+    padding: 10px;
+    border-collapse: separate ;
+    border-spacing: 0;
+    min-width: max-content;
+}
+
+.table th {
+    background-color: powderblue;
+}
+
+.table th,
+.table td {
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.autoMargin {
+    border: solid 1px gray;
+    margin: 5px;
+    padding: 5px;
+}
+
+.panel {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.button {
+    width: 25px;
+    margin: 1px;
+}

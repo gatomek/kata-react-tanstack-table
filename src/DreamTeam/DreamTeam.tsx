@@ -92,7 +92,7 @@ export function DreamTeam() {
             :
             table.getAllColumns().map(c => c.id);
         const index: number = columnIds.indexOf(columnId);
-        if (index == 0)
+        if (index === 0)
             return;
 
         const switchIndex = index - 1;
@@ -143,11 +143,12 @@ export function DreamTeam() {
                                             onClick={header.column.getToggleSortingHandler()}
                                             style={{
                                                 ...getPinningStyles(header.column),
-                                                cursor: 'pointer',
+                                                cursor: header.column.getCanSort() ? 'pointer' : 'inherit',
                                                 zIndex: header.column.getIsPinned() ? 2 : 0,
                                             }}
                                         >
                                             {
+
                                                 header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())
                                             }
                                             <span style={{minWidth: '30px', minHeight: '30px'}}> {

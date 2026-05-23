@@ -5,11 +5,11 @@ interface SortMarkerProps {
 }
 
 export function SortMarker(props: Readonly<SortMarkerProps>) {
-    if (props.direction == 'desc') {
+    if (props.direction === 'asc') {
         return <span>⬆</span>
     }
 
-    if (props.direction == 'asc') {
+    if (props.direction === 'desc') {
         return <span>⬇︎</span>
     }
 

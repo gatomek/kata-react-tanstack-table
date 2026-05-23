@@ -1,4 +1,5 @@
 # Kata @Tanstack/React-Table
+https://gatomek.github.io/kata-react-tanstack-table
 
 ## Backlog
 - add support for sorting polish diacritical letters

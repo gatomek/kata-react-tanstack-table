@@ -6,14 +6,14 @@ interface SortMarkerProps {
 
 export function SortMarker(props: Readonly<SortMarkerProps>) {
     if (props.direction == 'desc') {
-        return <span>+</span>
+        return <span>⬆</span>
     }
 
     if (props.direction == 'asc') {
-        return <span>-</span>
+        return <span>⬇︎</span>
     }
 
     return (
-        <span>*</span>
+        <span>⫶</span>
     )
 }

@@ -288,8 +288,8 @@ export function DreamTeam() {
                             }}
                             type="checkbox"
                         />
-                        <span>{
-                            <div>
+                        <div>{
+                            <span>
                                 <input value={globalFilter ?? ''}
                                        disabled={!globalFilterMode}
                                        onChange={(e): void => {
@@ -297,12 +297,11 @@ export function DreamTeam() {
                                        }}
                                        placeholder="Search..."
                                 />
-                            </div>
+                            </span>
                         }
-                        </span>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -80,7 +80,7 @@ export const columns = [
             cell: (props: CellContext<Person, number>) => props.renderValue(),
             footer: (props: HeaderContext<Person, number>) => props.column.id,
             size: 75,
-            filterFn: 'inNumberRange'
+            filterFn: 'equals'
         }
     ),
     columnHelper.accessor('visits',
@@ -88,7 +88,7 @@ export const columns = [
             header: () => <span>Visits</span>,
             footer: (props: HeaderContext<Person, number>) => props.column.id,
             size: 75,
-            filterFn: 'includesString'
+            filterFn: 'equals'
         }
     ),
     columnHelper.accessor('job',

@@ -13,3 +13,5 @@ jobs:
         run: npm ci
       - name: Build solution
         run: npm run build
+      - name: Lint solution
+        run: npm run eslint

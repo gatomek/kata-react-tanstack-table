@@ -17,6 +17,7 @@ import styles from './DreamTeam.module.css';
 import {type Person} from "./types.ts";
 import {persons} from './data';
 import {columns} from "./columns.tsx";
+import {SortMarker} from "./SortMarker.tsx";
 
 const getPinningStyles = (column: Column<Person, unknown>): CSSProperties => {
     const isPinned = column.getIsPinned()
@@ -143,22 +144,19 @@ export function DreamTeam() {
                                             style={{
                                                 ...getPinningStyles(header.column),
                                                 cursor: 'pointer',
-                                                zIndex: header.column.getIsPinned() ? 2 : 0, // header above body
+                                                zIndex: header.column.getIsPinned() ? 2 : 0,
                                             }}
                                         >
                                             {
                                                 header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())
                                             }
-                                            {
+                                            <span style={{minWidth: '30px', minHeight: '30px'}}> {
                                                 header.column.getCanSort() ?
-                                                    <span style={{minWidth: '30px', minHeight: '30px'}}>
-                                                {
-                                                    header.column.getIsSorted() ? (
-                                                        header.column.getIsSorted() === 'desc' ? ' ▽' : ' △'
-                                                    ) : ' ·'
-                                                }
-                                                </span> : undefined
+                                                    <SortMarker direction={header.column.getIsSorted()}/>
+                                                    :
+                                                    undefined
                                             }
+                                            </span>
                                         </th>
                                     ))
                                 }

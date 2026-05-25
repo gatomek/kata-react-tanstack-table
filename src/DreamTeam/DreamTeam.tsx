@@ -50,7 +50,6 @@ export function DreamTeam() {
             columns: columns,
             enableRowSelection: true,
             enableMultiRowSelection: false,
-            autoResetPageIndex: false,
             enableFilters: colFilterMode || globalFilterMode,
             getRowId: row => row.userId,
             enableColumnFilters: colFilterMode,

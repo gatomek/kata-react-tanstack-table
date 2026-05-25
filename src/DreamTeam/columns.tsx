@@ -10,6 +10,22 @@ const handler = (person: Person): void => {
 
 export const columns = [
     {
+        id: 'counter',
+        header: '#',
+        cell: (props: CellContext<Person, unknown>) => {
+            const {pageIndex, pageSize} = props.table.getState().pagination;
+            const rows = props.table.getRowModel().rows;
+            return pageIndex * pageSize + rows.findIndex(r => r.id === props.row.id) + 1;
+        },
+        size: 50,
+        maxSize: 50,
+        minSize: 50,
+        enableSorting: false,
+        enableHiding: false,
+        enableColumnFilter: false,
+        enableResizing: false,
+    },
+    {
         id: 'select-col',
         cell: (props: CellContext<Person, unknown>) => (
             <input

@@ -5,7 +5,8 @@ import {
     type ColumnOrderState,
     flexRender,
     getCoreRowModel,
-    getFilteredRowModel,
+    getFilteredRowModel, 
+    getPaginationRowModel,
     getSortedRowModel,
     type Row,
     type RowSelectionState,
@@ -56,6 +57,7 @@ export function DreamTeam() {
             getCoreRowModel: getCoreRowModel(),
             getSortedRowModel: getSortedRowModel(),
             getFilteredRowModel: getFilteredRowModel(),
+            getPaginationRowModel: getPaginationRowModel(),
             initialState: {
                 columnVisibility: {
                     userId: true,
@@ -67,8 +69,8 @@ export function DreamTeam() {
                     }
                 ],
                 columnPinning: {
-                    left: ['select-col', 'actions', 'userId']
-                }
+                    left: ['counter', 'select-col', 'actions', 'userId']
+                },
             },
             state: {
                 columnOrder: columnOrder,
@@ -187,6 +189,56 @@ export function DreamTeam() {
                     }
                     </tbody>
                 </table>
+            </div>
+
+            <div className={styles.panel}>
+                <div>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.firstPage()}
+                        disabled={!table.getCanPreviousPage()}
+                        aria-label='Go to first page'
+                    >
+                        {'<<'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                        aria-label='Go to previous page'
+                    >
+                        {'<'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                        aria-label='Go to next page'
+                    >
+                        {'>'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.lastPage()}
+                        disabled={!table.getCanNextPage()}
+                        aria-label='Go to last page'
+                    >
+                        {'>>'}
+                    </button>
+                    <select
+                        aria-label='Select page size'
+                        value={table.getState().pagination.pageSize}
+                        onChange={e => {
+                            table.setPageSize(Number(e.target.value))
+                        }}
+                    >
+                        {[10, 20, 30, 40, 50].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>
+                                {pageSize}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
             <div className={styles.panel}>
                 <div>

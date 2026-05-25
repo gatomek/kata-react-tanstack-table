@@ -1,4 +1,4 @@
-# Kata @Tanstack/React-Table
+# Kata @TanStack/React-Table
 https://gatomek.github.io/kata-react-tanstack-table
 
 ## Backlog
@@ -14,3 +14,4 @@ https://gatomek.github.io/kata-react-tanstack-table
 - add column multi-sort
 - add row multiselection 
 - use inNumberRange filter function for age row 
+

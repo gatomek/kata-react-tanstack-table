@@ -197,6 +197,7 @@ export function DreamTeam() {
                         className={styles.button}
                         onClick={() => table.firstPage()}
                         disabled={!table.getCanPreviousPage()}
+                        aria-label='Go to first page'
                     >
                         {'<<'}
                     </button>
@@ -204,6 +205,7 @@ export function DreamTeam() {
                         className={styles.button}
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
+                        aria-label='Go to previous page'
                     >
                         {'<'}
                     </button>
@@ -211,6 +213,7 @@ export function DreamTeam() {
                         className={styles.button}
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
+                        aria-label='Go to next page'
                     >
                         {'>'}
                     </button>
@@ -218,10 +221,12 @@ export function DreamTeam() {
                         className={styles.button}
                         onClick={() => table.lastPage()}
                         disabled={!table.getCanNextPage()}
+                        aria-label='Go to last page'
                     >
                         {'>>'}
                     </button>
                     <select
+                        aria-label='Select page size'
                         value={table.getState().pagination.pageSize}
                         onChange={e => {
                             table.setPageSize(Number(e.target.value))

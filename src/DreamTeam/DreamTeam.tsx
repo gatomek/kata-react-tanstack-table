@@ -5,7 +5,8 @@ import {
     type ColumnOrderState,
     flexRender,
     getCoreRowModel,
-    getFilteredRowModel,
+    getFilteredRowModel, 
+    getPaginationRowModel,
     getSortedRowModel,
     type Row,
     type RowSelectionState,
@@ -49,6 +50,7 @@ export function DreamTeam() {
             columns: columns,
             enableRowSelection: true,
             enableMultiRowSelection: false,
+            autoResetPageIndex: false,
             enableFilters: colFilterMode || globalFilterMode,
             getRowId: row => row.userId,
             enableColumnFilters: colFilterMode,
@@ -56,6 +58,7 @@ export function DreamTeam() {
             getCoreRowModel: getCoreRowModel(),
             getSortedRowModel: getSortedRowModel(),
             getFilteredRowModel: getFilteredRowModel(),
+            getPaginationRowModel: getPaginationRowModel(),
             initialState: {
                 columnVisibility: {
                     userId: true,
@@ -67,8 +70,8 @@ export function DreamTeam() {
                     }
                 ],
                 columnPinning: {
-                    left: ['select-col', 'actions', 'userId']
-                }
+                    left: ['counter', 'select-col', 'actions', 'userId']
+                },
             },
             state: {
                 columnOrder: columnOrder,
@@ -187,6 +190,51 @@ export function DreamTeam() {
                     }
                     </tbody>
                 </table>
+            </div>
+
+            <div className={styles.panel}>
+                <div>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.firstPage()}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        {'<<'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        {'<'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        {'>'}
+                    </button>
+                    <button
+                        className={styles.button}
+                        onClick={() => table.lastPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        {'>>'}
+                    </button>
+                    <select
+                        value={table.getState().pagination.pageSize}
+                        onChange={e => {
+                            table.setPageSize(Number(e.target.value))
+                        }}
+                    >
+                        {[10, 20, 30, 40, 50].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>
+                                {pageSize}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
             <div className={styles.panel}>
                 <div>

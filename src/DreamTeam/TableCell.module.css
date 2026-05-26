@@ -4,7 +4,7 @@
 
 .start {
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     width: 100%;
 }
 
@@ -16,7 +16,7 @@
 
 .end {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     width: 100%;
 }
 

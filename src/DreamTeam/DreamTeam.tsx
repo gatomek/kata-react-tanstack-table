@@ -1,24 +1,25 @@
+import type {
+    Cell,
+    Column,
+    ColumnFiltersState,
+    ColumnOrderState,
+    Row,
+    RowSelectionState,
+    Updater,
+} from '@tanstack/react-table';
 import {
-    type Cell,
-    type Column,
-    type ColumnFiltersState,
-    type ColumnOrderState,
     flexRender,
     getCoreRowModel,
-    getFilteredRowModel, 
+    getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
-    type Row,
-    type RowSelectionState,
-    type Updater,
     useReactTable
-} from '@tanstack/react-table'
+} from '@tanstack/react-table';
 import {type CSSProperties, useState} from "react";
 import styles from './DreamTeam.module.css';
 import {type Person} from "./types.ts";
 import {persons} from './data';
 import {columns} from "./columns.tsx";
-import {SortMarker} from "./SortMarker.tsx";
 
 const getPinningStyles = (column: Column<Person, unknown>): CSSProperties => {
     const isPinned = column.getIsPinned()
@@ -48,12 +49,14 @@ export function DreamTeam() {
         {
             data: persons,
             columns: columns,
+
             enableRowSelection: true,
             enableMultiRowSelection: false,
             enableFilters: colFilterMode || globalFilterMode,
-            getRowId: row => row.userId,
             enableColumnFilters: colFilterMode,
             enableGlobalFilter: globalFilterMode,
+
+            getRowId: (person: Person) => person.userId,
             getCoreRowModel: getCoreRowModel(),
             getSortedRowModel: getSortedRowModel(),
             getFilteredRowModel: getFilteredRowModel(),
@@ -69,7 +72,8 @@ export function DreamTeam() {
                     }
                 ],
                 columnPinning: {
-                    left: ['counter', 'select-col', 'actions', 'userId']
+                    left: ['counter', 'select-col', 'actions'],
+                    right: ['rating']
                 },
             },
             state: {
@@ -142,7 +146,6 @@ export function DreamTeam() {
                                 {
                                     headerGroup.headers.map(header => (
                                         <th key={header.id}
-                                            onClick={header.column.getToggleSortingHandler()}
                                             style={{
                                                 ...getPinningStyles(header.column),
                                                 cursor: header.column.getCanSort() ? 'pointer' : 'inherit',
@@ -150,16 +153,9 @@ export function DreamTeam() {
                                             }}
                                         >
                                             {
-
                                                 header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())
                                             }
-                                            <span style={{minWidth: '30px', minHeight: '30px'}}> {
-                                                header.column.getCanSort() ?
-                                                    <SortMarker direction={header.column.getIsSorted()}/>
-                                                    :
-                                                    undefined
-                                            }
-                                            </span>
+
                                         </th>
                                     ))
                                 }

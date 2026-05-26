@@ -1,0 +1,32 @@
+.tableCell {
+    padding: 5px;
+}
+
+.start {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.end {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.header {
+    display: inline-flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: cornsilk;
+}
+
+.pinned {
+    position: sticky;
+}

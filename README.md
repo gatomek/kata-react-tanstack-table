@@ -1,9 +1,11 @@
 # Kata @TanStack/React-Table
 https://gatomek.github.io/kata-react-tanstack-table
 
+## Features
+- pagination view added
+
 ## Backlog
 - add support for sorting polish diacritical letters
-- add pagination view
 - add column ordering by DnD
 - add column resizing by DnD
 - add bottom summary row
